@@ -98,7 +98,7 @@ class Popular extends Component {
         <h1 className="top-head" style={{marginLeft: '50px'}}>
           Explore the Popular Movies Here
         </h1>
-        <>{this.renderCasesForVideos()}</>
+        {this.renderCasesForVideos()}
         <Footer />
       </div>
     )

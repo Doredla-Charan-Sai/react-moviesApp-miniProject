@@ -27,8 +27,11 @@ class Home extends Component {
   }
 
   retry = () => {
-    this.getTrendingApiCall()
     this.getOriginalApiCall()
+  }
+
+  retryTrending = () => {
+    this.getTrendingApiCall()
   }
 
   getTrendingApiCall = async () => {
@@ -96,13 +99,27 @@ class Home extends Component {
       case apiStatusConstants.inProgress:
         return this.renderLoaderView()
       case apiStatusConstants.failure:
-        return this.renderFailureView()
+        return this.renderTrendingFailureView()
       case apiStatusConstants.success:
         return this.renderTrendingSuccess()
       default:
         return null
     }
   }
+
+  renderTrendingFailureView = () => (
+    <div className="failure-div">
+      <img
+        className="failure-img"
+        src="https://res.cloudinary.com/dksp7vfwl/image/upload/v1701673093/Movies%20App/alert-triangle_tlkqhw.png"
+        alt="failure view"
+      />
+      <p className="top-para">Something went wrong. Please try again</p>
+      <button className="play-btn" type="button" onClick={this.retryTrending}>
+        Try Again
+      </button>
+    </div>
+  )
 
   renderTrendingSuccess = () => {
     const {trendingMovies} = this.state
@@ -172,7 +189,7 @@ class Home extends Component {
       <img
         className="failure-img"
         src="https://res.cloudinary.com/dksp7vfwl/image/upload/v1701673093/Movies%20App/alert-triangle_tlkqhw.png"
-        alt="failure"
+        alt="failure view"
       />
       <p className="top-para">Something went wrong. Please try again</p>
       <button className="play-btn" type="button" onClick={this.retry}>

@@ -17,7 +17,7 @@ const Footer = () => (
         <FaYoutube fill="white" />
       </button>
     </div>
-    <p className="contact-us">Contact Us</p>
+    <p className="contact-us">Contact us</p>
   </div>
 )
 export default Footer

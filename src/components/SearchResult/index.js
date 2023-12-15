@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 import Cookies from 'js-cookie'
 import Header from '../Header'
 import Footer from '../Footer'
-import NotFound from '../NotFound'
+import FailureView from '../FailureView'
 import LoadingView from '../LoadingView'
 import './index.css'
 
@@ -75,7 +75,7 @@ class SearchResult extends Component {
 
   renderLoaderView = () => <LoadingView />
 
-  renderFailureView = () => <NotFound />
+  renderFailureView = () => <FailureView onRetry={this.retry} />
 
   renderNoVideosView = () => {
     const {searchInput} = this.state

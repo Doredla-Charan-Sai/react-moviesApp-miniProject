@@ -2,7 +2,7 @@ import {Component} from 'react'
 import {Link} from 'react-router-dom'
 import Cookies from 'js-cookie'
 import Header from '../Header'
-import NotFound from '../NotFound'
+import FailureView from '../FailureView'
 import LoadingView from '../LoadingView'
 import Footer from '../Footer'
 import './index.css'
@@ -89,6 +89,10 @@ class MovieDetails extends Component {
     }
   }
 
+  retry = () => {
+    this.getMovieDetailsApiCall()
+  }
+
   renderCasesForVideos = () => {
     const {movieDetailsStatus} = this.state
     switch (movieDetailsStatus) {
@@ -105,7 +109,7 @@ class MovieDetails extends Component {
 
   renderLoaderView = () => <LoadingView />
 
-  renderFailureView = () => <NotFound />
+  renderFailureView = () => <FailureView onRetry={this.retry} />
 
   renderSuccessView = () => {
     const {
@@ -165,7 +169,7 @@ class MovieDetails extends Component {
               ))}
             </li>
             <li className="genres-list" key="audios" data-tesid="audios">
-              <h1 className="top-head">Audios Available</h1>
+              <h1 className="top-head">Audio Available</h1>
               {spokenLanguagesList.map(eachLanguage => (
                 <li key={eachLanguage.id}>
                   <p className="top-para">{eachLanguage.englishName}</p>
@@ -175,7 +179,7 @@ class MovieDetails extends Component {
             <li className="genres-list" key="votes" data-tesid="votes">
               <h1 className="top-head">Rating Count</h1>
               <p className="top-para">{movieDetailsList[0].voteCount}</p>
-              <h1 className="top-head">Rating Avarage</h1>
+              <h1 className="top-head">Rating Average</h1>
               <p className="top-para">{movieDetailsList[0].voteAverage}</p>
             </li>
             <li className="genres-list" key="budget" data-tesid="budget">
