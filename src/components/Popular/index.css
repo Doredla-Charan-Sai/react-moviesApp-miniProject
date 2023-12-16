@@ -19,7 +19,6 @@
   border-radius: 10px;
 }
 .search-div {
-  height: 100vh;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
