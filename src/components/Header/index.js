@@ -1,10 +1,10 @@
 import {Component} from 'react'
-import {Link} from 'react-router-dom'
+import {Link, withRouter} from 'react-router-dom'
 import {HiOutlineSearch} from 'react-icons/hi'
 import './index.css'
 
 class Header extends Component {
-  state = {search: false, activeItem: 'home'}
+  state = {search: false}
 
   onClickSearchBtn = () => {
     this.setState({search: true})
@@ -20,16 +20,18 @@ class Header extends Component {
     onClickSearchIcon()
   }
 
-  onHomeItem = () => {
-    this.setState({activeItem: 'home'})
-  }
+  //   onHomeItem = () => {
+  //     this.setState({activeItem: 'home'})
+  //   }
 
-  onPopularItem = () => {
-    this.setState({activeItem: 'popular'})
-  }
+  //   onPopularItem = () => {
+  //     this.setState({activeItem: 'popular'})
+  //   }
 
   render() {
-    const {search, searchInput, activeItem} = this.state
+    const {search, searchInput} = this.state
+    const {location} = this.props
+    console.log(location.pathname)
     return (
       <div className="header-div">
         <div className="img-routes">
@@ -47,7 +49,8 @@ class Header extends Component {
                 key="home"
                 onClick={this.onHomeItem}
                 style={{
-                  textDecoration: activeItem === 'home' ? 'underline' : 'none',
+                  textDecoration:
+                    location.pathname === '/' ? 'underline' : 'none',
                 }}
               >
                 Home
@@ -60,7 +63,7 @@ class Header extends Component {
                 onClick={this.onPopularItem}
                 style={{
                   textDecoration:
-                    activeItem === 'popular' ? 'underline' : 'none',
+                    location.pathname === '/popular' ? 'underline' : 'none',
                 }}
               >
                 Popular
@@ -69,7 +72,7 @@ class Header extends Component {
           </ul>
         </div>
         <div className="search-account-div">
-          {search ? (
+          {search || location.pathname === '/search' ? (
             <div className="search-cont">
               <input
                 className="search-input"
@@ -119,4 +122,4 @@ class Header extends Component {
     )
   }
 }
-export default Header
+export default withRouter(Header)
