@@ -56,6 +56,10 @@ class SearchResult extends Component {
     this.setState({searchInput: value})
   }
 
+  retry = () => {
+    this.getSearchVideosApiCall()
+  }
+
   renderCasesForVideos = () => {
     const {getVideosStatus, allVideosList} = this.state
     switch (getVideosStatus) {
@@ -84,7 +88,7 @@ class SearchResult extends Component {
         <img
           className="no-VideoImg"
           src="https://res.cloudinary.com/dksp7vfwl/image/upload/v1701673203/Movies%20App/Group_7394_vad2dr.png"
-          alt="no videos"
+          alt="no movies"
         />
         <p className="initial-SearchPara">
           Your search for {searchInput} did not find any matches.

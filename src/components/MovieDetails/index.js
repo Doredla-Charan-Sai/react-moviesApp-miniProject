@@ -1,4 +1,5 @@
 import {Component} from 'react'
+// import {formatDuration} from 'date-fns'
 import {Link} from 'react-router-dom'
 import Cookies from 'js-cookie'
 import Header from '../Header'
@@ -131,6 +132,7 @@ class MovieDetails extends Component {
       'November',
       'December',
     ]
+    // const duration = formatDuration({movieDetailsList[0].runtime})
     return (
       <>
         <div
@@ -143,7 +145,7 @@ class MovieDetails extends Component {
             <div className="details-div">
               <p className="top-para">
                 {Math.floor(movieDetailsList[0].runtime / 60)} h{' '}
-                {movieDetailsList[0].runtime % 60} m
+                {movieDetailsList[0].runtime % 60} m{/* {duration} */}
               </p>
               <p className="ultra-para">
                 {movieDetailsList[0].adult ? 'A' : 'U/A'}

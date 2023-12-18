@@ -87,11 +87,7 @@ class Header extends Component {
                 testid="searchButton"
                 type="button"
               >
-                <HiOutlineSearch
-                  size="20px"
-                  color="white"
-                  testid="searchButton"
-                />
+                <HiOutlineSearch size="20px" color="white" />
               </button>
             </div>
           ) : (
@@ -104,7 +100,6 @@ class Header extends Component {
                 <HiOutlineSearch
                   size={20}
                   color="white"
-                  testid="searchButton"
                   onClick={this.onClickSearchBtn}
                 />
               </button>
