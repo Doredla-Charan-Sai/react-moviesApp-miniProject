@@ -144,8 +144,8 @@ class MovieDetails extends Component {
             <h1 className="top-head">{movieDetailsList[0].title}</h1>
             <div className="details-div">
               <p className="top-para">
-                {Math.floor(movieDetailsList[0].runtime / 60)} h{' '}
-                {movieDetailsList[0].runtime % 60} m{/* {duration} */}
+                {Math.floor(movieDetailsList[0].runtime / 60)}h{' '}
+                {movieDetailsList[0].runtime % 60}m{/* {duration} */}
               </p>
               <p className="ultra-para">
                 {movieDetailsList[0].adult ? 'A' : 'U/A'}
